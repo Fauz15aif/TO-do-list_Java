@@ -47,9 +47,13 @@ function tambahTugas() {
 
   // event tombol hapus
   tombolHapus.addEventListener("click", function () {
-    tugasBaru.remove();
-    totalTugas--;
-    updateJumlahTugas();
+    if (checkbox.checked) { 
+      tugasBaru.remove();
+      totalTugas--;
+      updateJumlahTugas();
+    } else {
+        alert("Tugas harus dicentang sebelum dihapus!");
+    }
   });
 
   //memasukkan tugas baru ke  dalam html
@@ -72,7 +76,7 @@ btnTambah.addEventListener("click", function () {
 
 // event enter
 inputTugas.addEventListener("keypress", function (event) {
-  if (event.key === "Enter") {
+  if (event.key === "Enter") {  
     tambahTugas();
   }
 });
