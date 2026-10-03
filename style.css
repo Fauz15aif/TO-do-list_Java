@@ -5,8 +5,8 @@
 }
 
 body {
-  font-family: Arial, sans-serif;
-  background: linear-gradient(135deg, #adc9ef, #a2d1ff);
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: linear-gradient(135deg, #dce4f2, #79aaef);
   min-height: 100vh;
   padding: 40px 20px;
 }
@@ -25,19 +25,20 @@ body {
 .header h1 {
   font-size: 36px;
   margin-bottom: 8px;
-  color: #000000;
+  color: #1c232c;
 }
 
 .header p {
   font-size: 16px;
-  color: #000000;
+  color: #00000085;
 }
 
 .todo-box {
-  background-color: white;
+  background-color: #fdfdfd;
   padding: 25px;
-  box-shadow: 5px 5px 3px 0px rgba(0, 0, 0, 0.25);
-  border-radius: 8px;
+  box-shadow: 5px 5px 3px 0px rgba(39, 54, 75, 0.12);
+  border-radius: 12px;
+  border: 1px solid #d9e1ec;
 }
 
 .input-wrapper {
@@ -50,34 +51,34 @@ body {
   flex: 1;
   padding: 12px 15px;
   border: 1px solid #cbd5e1;
-  box-shadow: 2px 2px 0px 0px rgba(0, 0, 0, 0.25);
+  box-shadow: 2px 2px 0px 0px rgba(39, 54, 75, 0.10);
   border-radius: 8px;
   font-size: 15px;
   outline: none;
 }
 
 #tugas-input:focus {
-  border-color: #000000;
+  border-color: #8b9dc3;
 }
 
 #btn-tambah {
   padding: 12px 20px;
   border: none;
   border-radius: 8px;
-  background-color: #00eeff;
-  color: rgb(0, 0, 0);
+  background-color: #9bb7d4;
+  color: #17263a;
   font-size: 15px;
   cursor: pointer;
 }
 
 #btn-tambah:hover {
-  background-color: #1bc8c8;
+  background-color: #829fbe;
 }
 
 .list-container h2 {
   font-size: 20px;
   margin-bottom: 15px;
-  color: #000103;
+  color: #101318;
 }
 
 #daftar-tugas {
