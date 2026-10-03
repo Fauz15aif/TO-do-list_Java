@@ -1,28 +1,42 @@
 console.log("List dimulai ");
-
+//mengambil elemen html
 const inputTugas = document.getElementById("tugas-input");
 const btnTambah = document.getElementById("btn-tambah");
 const daftarTugas = document.getElementById("daftar-tugas");
+const jumlahTugas = document.getElementById("jumlah-tugas");
 
-btnTambah.addEventListener("click", function () {
-  const teksTugas = inputTugas.value;
+let totalTugas = 0; // menghitung jumlah Tugas
+function updateJumlahTugas() {
+  jumlahTugas.innerText = totalTugas;
+}
+
+// membuat fungsi untuk menambahkan tugas baru
+function tambahTugas() {
+  const teksTugas = inputTugas.value.trim();
   if (teksTugas === "") {
-    alert("Tolong masukkan tugas!");
+    alert("catatan tidak boleh kosong!");
     return;
   }
 
+  //   buat li baru
   const tugasBaru = document.createElement("li");
 
+  // membuat checkbox
   const checkbox = document.createElement("input");
   checkbox.type = "checkbox";
   tugasBaru.appendChild(checkbox);
 
+  // membuat span untuk teks tugas
   const teksTugasBaru = document.createElement("span");
-  teksTugasBaru.textContent = teksTugas;
+  teksTugasBaru.innerText = teksTugas;
   tugasBaru.appendChild(teksTugasBaru);
 
-  daftarTugas.appendChild(tugasBaru);
+  //bikin tombol hapus di java
+  const tombolHapus = document.createElement("button");
+  tombolHapus.innerText = "Hapus";
+  tugasBaru.appendChild(tombolHapus);
 
+  // even checkbox
   checkbox.addEventListener("change", function () {
     if (checkbox.checked) {
       teksTugasBaru.style.textDecoration = "line-through";
@@ -31,12 +45,34 @@ btnTambah.addEventListener("click", function () {
     }
   });
 
-  const tombolHapus = document.createElement("button");
-  tombolHapus.textContent = "Hapus";
-  tugasBaru.appendChild(tombolHapus);
-  
+  // event tombol hapus
   tombolHapus.addEventListener("click", function () {
     tugasBaru.remove();
+    totalTugas--;
+    updateJumlahTugas();
   });
+
+  //memasukkan tugas baru ke  dalam html
   daftarTugas.appendChild(tugasBaru);
+
+  //mengosongkan input
+  inputTugas.value = "";
+
+  // menambahkan jumlah tugas
+  totalTugas++;
+  updateJumlahTugas();
+
+  console.log(`Tugas berhasil ditambahkan: ${teksTugas}`);
+}
+
+// event tombol tambah
+btnTambah.addEventListener("click", function () {
+  tambahTugas();
+});
+
+// event enter
+inputTugas.addEventListener("keypress", function (event) {
+  if (event.key === "Enter") {
+    tambahTugas();
+  }
 });
